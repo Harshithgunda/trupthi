@@ -5,11 +5,13 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5050/api/auth/register', {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
@@ -18,10 +20,10 @@ function Signup() {
       const data = await res.json();
 
       if (res.ok && data.token && data.refreshToken) {
-        localStorage.setItem('token', data.token); // access token
-        localStorage.setItem('refreshToken', data.refreshToken); // refresh token
-        localStorage.setItem('user', JSON.stringify(data.user)); // user info
-        window.location.href = '/home'; // redirect
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('refreshToken', data.refreshToken);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        window.location.href = '/home';
       } else {
         alert(data.msg || 'Signup failed');
       }
