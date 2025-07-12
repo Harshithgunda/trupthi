@@ -1,0 +1,166 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Background */
+.subscribe-page {
+  min-height: 100vh;
+  background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/9f/31/f6/gerechten-van-het-seizoen.jpg') center/cover no-repeat fixed;
+  padding: 4rem 2rem;
+  backdrop-filter: blur(3px);
+}
+
+/* Header */
+.subscribe-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.subscribe-logo {
+  height: 48px;
+  border-radius: 12px;
+}
+
+.search-bar {
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 300px;
+  max-width: 100%;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to right, #3a86ff, #00b4d8);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 180, 216, 0.4);
+}
+
+/* Heading */
+.subscribe-page h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Loader */
+.loader {
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid #00b4d8;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 2rem auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Message */
+.error {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: rgba(255, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+
+/* Restaurant Grid */
+.restaurant-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Frost Glass Card */
+.restaurant-card.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  color: #fff;
+}
+.restaurant-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.restaurant-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.restaurant-card p {
+  font-size: 0.95rem;
+  color: #eaeaea;
+  margin-bottom: 0.3rem;
+}
+
+.restaurant-card .category {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  background: #3a86ff;
+  color: white;
+  display: inline-block;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subscribe-page h2 {
+    font-size: 2rem;
+  }
+  .restaurant-card {
+    padding: 1rem;
+  }
+}

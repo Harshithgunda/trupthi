@@ -1,0 +1,95 @@
+/* Full height background container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.signup-bg {
+  background-image: url('https://images.unsplash.com/photo-1682778418768-16081e4470a1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D');
+}
+
+.login-bg {
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D');
+}
+
+/* White centered form card */
+.auth-card {
+  background-color: rgba(255, 255, 255, 0.93); /* less transparent */
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Logo style */
+.logo {
+  max-height: 90px;
+  margin-bottom: 1rem;
+}
+
+/* Heading */
+.auth-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Toggle buttons */
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.toggle-buttons button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #497a2b;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toggle-buttons button:hover {
+  background-color: #3a6121;
+}
+
+/* Input fields */
+.auth-card input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Submit button */
+.auth-card button[type="submit"] {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #497a2b;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-card button[type="submit"]:hover {
+  background-color: #3a6121;
+}

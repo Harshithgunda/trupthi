@@ -1,0 +1,140 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Full Page Background */
+.confirm-page {
+  min-height: 100vh;
+  background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat fixed;
+  padding: 3rem 1.5rem;
+  color: #fff;
+}
+
+/* Navigation Bar */
+.confirm-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.confirm-logo {
+  height: 48px;
+  border-radius: 12px;
+}
+
+.home-btn {
+  background: linear-gradient(to right, #3a86ff, #00b4d8);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.home-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 180, 216, 0.4);
+}
+
+/* Main Box */
+.confirm-box {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  color: #fff;
+}
+
+/* Typography */
+.confirm-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.confirm-box p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.confirm-box label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Inputs */
+.confirm-box select,
+.confirm-box textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: none;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  resize: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Button */
+.confirm-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #3a86ff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.confirm-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.confirm-btn:hover:not(:disabled) {
+  background-color: #2d6cdf;
+  box-shadow: 0 6px 16px rgba(58, 134, 255, 0.3);
+}
+
+/* Confirmation Message */
+.confirmation-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 255, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: #d4ffd4;
+}
+
+/* Error Message */
+.error-msg {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  color: #ffcccc;
+  font-size: 1rem;
+}
