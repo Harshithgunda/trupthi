@@ -1,4 +1,7 @@
 // src/utils/fetchWithAuth.js
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const fetchWithAuth = async (url, options = {}) => {
   let token = localStorage.getItem('token');
 
@@ -17,8 +20,7 @@ export const fetchWithAuth = async (url, options = {}) => {
     const refreshToken = localStorage.getItem('refreshToken');
     if (!refreshToken) throw new Error('No refresh token found');
 
-    const refreshRes = await fetch('http://localhost:5050/api/auth/refresh-token', {
-
+    const refreshRes = await fetch(`${API_URL}/api/auth/refresh-token`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ refreshToken }),
