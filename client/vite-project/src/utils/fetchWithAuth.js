@@ -1,10 +1,7 @@
-// src/utils/fetchWithAuth.js
-
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const fetchWithAuth = async (url, options = {}) => {
   let token = localStorage.getItem('token');
-
   if (!token) throw new Error('No token found');
 
   // Set Authorization header
@@ -13,7 +10,8 @@ export const fetchWithAuth = async (url, options = {}) => {
     Authorization: `Bearer ${token}`,
   };
 
-  const res = await fetch(url, options);
+  // ✅ Always use full URL
+  const res = await fetch(`${API_URL}${url}`, options);
 
   // If token expired, try to refresh
   if (res.status === 401) {
@@ -40,7 +38,7 @@ export const fetchWithAuth = async (url, options = {}) => {
 
     // Retry original request
     options.headers.Authorization = `Bearer ${token}`;
-    return fetch(url, options);
+    return fetch(`${API_URL}${url}`, options); // ✅ Use full URL again
   }
 
   return res;
