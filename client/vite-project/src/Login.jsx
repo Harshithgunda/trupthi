@@ -4,11 +4,13 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5050/api/auth/login', {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -21,13 +23,11 @@ function Login() {
         return;
       }
 
-      // ✅ Fixed: correctly handling tokens from backend
       if (data.accessToken && data.refreshToken) {
-        localStorage.setItem('token', data.accessToken);           // Access Token
-        localStorage.setItem('refreshToken', data.refreshToken);   // Refresh Token
-        localStorage.setItem('user', JSON.stringify(data.user));   // Optional: store user
-
-        window.location.href = '/home'; // Or use navigate()
+        localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('refreshToken', data.refreshToken);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        window.location.href = '/home';
       } else {
         alert('Login failed: Missing tokens');
       }
