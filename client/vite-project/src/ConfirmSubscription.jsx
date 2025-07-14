@@ -14,6 +14,8 @@ function ConfirmSubscription() {
   const restaurant = location.state?.restaurant;
   const mealPlan = location.state?.meal;
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     if (!restaurant || !mealPlan) {
       navigate('/subscribe');
@@ -23,7 +25,7 @@ function ConfirmSubscription() {
   // 💸 Razorpay handler with UPI enabled
   const openRazorpay = async () => {
     try {
-      const res = await fetch('http://localhost:5050/api/payment/create-order', {
+      const res = await fetch(`${API_URL}/api/payment/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -53,7 +55,7 @@ function ConfirmSubscription() {
           color: '#663399',
         },
         method: {
-          upi: true,         // ✅ Explicitly enabling UPI
+          upi: true,
           card: true,
           netbanking: true,
           wallet: true
@@ -75,7 +77,7 @@ function ConfirmSubscription() {
     }
 
     try {
-      const response = await fetchWithAuth('http://localhost:5050/api/subscribe', {
+      const response = await fetchWithAuth(`${API_URL}/api/subscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -90,7 +92,7 @@ function ConfirmSubscription() {
 
       if (response.ok) {
         setConfirmed(true);
-        openRazorpay(); // 💸 Trigger payment only after confirmation
+        openRazorpay();
       } else {
         setError(data.message || 'Subscription failed.');
       }
