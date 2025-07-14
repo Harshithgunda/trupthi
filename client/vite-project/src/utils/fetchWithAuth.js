@@ -8,10 +8,13 @@ export const fetchWithAuth = async (url, options = {}) => {
   options.headers = {
     ...options.headers,
     Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json', // ensure content-type is set
   };
 
-  // ✅ Always use full URL
-  const res = await fetch(`${API_URL}${url}`, options);
+  // ✅ Smart handling of full or relative URLs
+  const fullUrl = url.startsWith('http') ? url : `${API_URL}${url}`;
+
+  const res = await fetch(fullUrl, options);
 
   // If token expired, try to refresh
   if (res.status === 401) {
@@ -36,9 +39,9 @@ export const fetchWithAuth = async (url, options = {}) => {
     token = refreshData.accessToken;
     localStorage.setItem('token', token);
 
-    // Retry original request
+    // Retry original request with new token
     options.headers.Authorization = `Bearer ${token}`;
-    return fetch(`${API_URL}${url}`, options); // ✅ Use full URL again
+    return fetch(fullUrl, options);
   }
 
   return res;
