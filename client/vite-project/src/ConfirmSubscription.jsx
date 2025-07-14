@@ -43,7 +43,7 @@ function ConfirmSubscription() {
         name: 'Trupthi Meals',
         description: 'Subscription Payment',
         order_id: order.id,
-        handler: function (response) {
+        handler: function () {
           alert('✅ Payment successful!');
           setTimeout(() => navigate('/home'), 2000);
         },
@@ -58,7 +58,7 @@ function ConfirmSubscription() {
           upi: true,
           card: true,
           netbanking: true,
-          wallet: true
+          wallet: true,
         }
       };
 
@@ -77,9 +77,9 @@ function ConfirmSubscription() {
     }
 
     try {
-      const response = await fetchWithAuth(`${API_URL}/api/subscribe`, {
+      // ✅ Only pass relative path to fetchWithAuth
+      const response = await fetchWithAuth('/api/subscribe', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           mealPlan,
           restaurant,
