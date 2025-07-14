@@ -6,19 +6,21 @@ require('dotenv').config();
 
 const app = express();
 
-// ✅ Allowed origins for CORS
+// ✅ Allowed origins for CORS — Add all Vercel URLs here
 const allowedOrigins = [
   'http://localhost:5173',
+  'https://trupthi.vercel.app',
   'https://trupthi-fpvdm1nax-harshiths-projects-227a92aa.vercel.app'
 ];
 
 // ✅ CORS configuration
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl)
+    // Allow requests with no origin (e.g., mobile apps, curl)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log('❌ Blocked by CORS:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -38,7 +40,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('✅ Connected to MongoDB Atlas'))
 .catch((err) => {
   console.error('❌ MongoDB connection error:', err.message);
-  process.exit(1); // Exit if DB fails
+  process.exit(1);
 });
 
 // ✅ Routes
@@ -50,7 +52,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/subscribe', subscribeRoutes);
 app.use('/api/payment', paymentRoutes);
 
-// ✅ Health check route
+// ✅ Health check
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.status(200).send('Welcome to Trupthi Backend 🚀');
