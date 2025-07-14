@@ -6,39 +6,42 @@ require('dotenv').config();
 
 const app = express();
 
-// ✅ Define allowed origins (localhost for dev, Vercel for prod)
+// ✅ Allowed origins for CORS
 const allowedOrigins = [
   'http://localhost:5173',
   'https://trupthi-fpvdm1nax-harshiths-projects-227a92aa.vercel.app'
 ];
 
-// ✅ Apply CORS with origin checking
+// ✅ CORS configuration
 app.use(cors({
   origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true // important if you use cookies or auth headers
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Middleware
+// ✅ Express middleware
 app.use(express.json());
 
-// MongoDB Connection
+// ✅ MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
 .then(() => console.log('✅ Connected to MongoDB Atlas'))
 .catch((err) => {
   console.error('❌ MongoDB connection error:', err.message);
-  process.exit(1);
+  process.exit(1); // Exit if DB fails
 });
 
-// Routes
+// ✅ Routes
 const authRoutes = require('./routes/auth');
 const subscribeRoutes = require('./routes/subscribe');
 const paymentRoutes = require('./routes/payment');
@@ -47,13 +50,13 @@ app.use('/api/auth', authRoutes);
 app.use('/api/subscribe', subscribeRoutes);
 app.use('/api/payment', paymentRoutes);
 
-// Health Check
+// ✅ Health check route
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.status(200).send('Welcome to Trupthi Backend 🚀');
 });
 
-// Start Server
+// ✅ Start server
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
