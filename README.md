@@ -37,8 +37,8 @@ Admins can manage restaurants, menus, bookings, and users.
 
 # Folder Structure
 
-*Trupthi/
-*├── client/                  # Frontend codebase (React + Vite)
+* Trupthi/
+* ├── client/                  # Frontend codebase (React + Vite)
 *│   ├── src/
 *│   │   ├── components/
 *│   │   ├── pages/
