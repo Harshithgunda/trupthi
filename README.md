@@ -39,22 +39,22 @@ Admins can manage restaurants, menus, bookings, and users.
 
 * Trupthi/
 * ├── client/                  # Frontend codebase (React + Vite)
-*│   ├── src/
-*│   │   ├── components/
-*│   │   ├── pages/
-*│   │   ├── utils/fetchWithAuth.js
-*│   │   └── App.jsx
-*│   └── vite.config.js
-*├── server/                  # Backend codebase (Node + Express)
-*│   ├── controllers/
-*│   ├── models/
-*│   ├── routes/
-*│   ├── middleware/
-*│   ├── utils/
-*│   ├── config/
-*│   └── index.js             # Server entry point
-*├── .env
-*└── README.md
+* │   ├── src/
+* │   │   ├── components/
+* │   │   ├── pages/
+* │   │   ├── utils/fetchWithAuth.js
+* │   │   └── App.jsx
+* │   └── vite.config.js
+* ├── server/                  # Backend codebase (Node + Express)
+* │   ├── controllers/
+* │   ├── models/
+* │   ├── routes/
+* │   ├── middleware/
+* │   ├── utils/
+* │   ├── config/
+* │   └── index.js             # Server entry point
+* ├── .env
+* └── README.md
 
 # Deployment
 * Frontend: Deployed using Vercel
