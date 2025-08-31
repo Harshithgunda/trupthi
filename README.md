@@ -17,8 +17,6 @@ Users can make secure payments through Razorpay for their bookings and food orde
 5) Email Confirmation
 Customers receive confirmation emails after successful bookings or payments.
 
-6) Admin Dashboard
-Admins can manage restaurants, menus, bookings, and users.
 
 # Technologies Used
 * Frontend
@@ -30,7 +28,7 @@ Admins can manage restaurants, menus, bookings, and users.
 # Backend
 * Node.js
 * Express.js
-* MongoDB with Mongoose
+* MongoDB Cluster.
 * JSON Web Tokens (JWT)
 * Nodemailer for sending confirmation emails
 * Razorpay for payment gateway integration
